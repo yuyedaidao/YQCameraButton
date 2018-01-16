@@ -12,6 +12,7 @@
 		21A7F8E8200D9BF300890081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7F8E6200D9BF300890081 /* Main.storyboard */; };
 		21A7F8EA200D9BF300890081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A7F8E9200D9BF300890081 /* Assets.xcassets */; };
 		21A7F8ED200D9BF300890081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7F8EB200D9BF300890081 /* LaunchScreen.storyboard */; };
+		21A7F8F6200D9FDB00890081 /* YQCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7F8F5200D9FDB00890081 /* YQCameraButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		21A7F8E9200D9BF300890081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21A7F8EC200D9BF300890081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21A7F8EE200D9BF300890081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21A7F8F5200D9FDB00890081 /* YQCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQCameraButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		21A7F8D6200D9BF300890081 = {
 			isa = PBXGroup;
 			children = (
+				21A7F8F4200D9F7B00890081 /* Classes */,
 				21A7F8E1200D9BF300890081 /* YQCameraButton */,
 				21A7F8E0200D9BF300890081 /* Products */,
 			);
@@ -62,6 +65,14 @@
 				21A7F8EE200D9BF300890081 /* Info.plist */,
 			);
 			path = YQCameraButton;
+			sourceTree = "<group>";
+		};
+		21A7F8F4200D9F7B00890081 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				21A7F8F5200D9FDB00890081 /* YQCameraButton.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			files = (
 				21A7F8E5200D9BF300890081 /* ViewController.swift in Sources */,
 				21A7F8E3200D9BF300890081 /* AppDelegate.swift in Sources */,
+				21A7F8F6200D9FDB00890081 /* YQCameraButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +289,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QXPHWM9EW2;
 				INFOPLIST_FILE = YQCameraButton/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wqy.YQCameraButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QXPHWM9EW2;
 				INFOPLIST_FILE = YQCameraButton/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wqy.YQCameraButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
