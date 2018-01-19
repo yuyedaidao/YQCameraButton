@@ -23,7 +23,7 @@ public class YQCameraButton: UIControl {
     private let insideLayer: CAShapeLayer = CAShapeLayer()
     private let outsideLayer: CAShapeLayer = CAShapeLayer()
     private let _intrinsicContentSize = CGSize(width: 30, height: 30)
-    fileprivate var animationNewProperties: (CGRect, CGFloat)?
+//    fileprivate var animationNewProperties: (CGRect, CGFloat)?
     private var lineWidth: CGFloat = 6
 
     private var _isHighlighted = false {
@@ -127,12 +127,12 @@ public class YQCameraButton: UIControl {
             let group = CAAnimationGroup()
             group.animations = animations
             group.duration = kDuration
-            group.delegate = self
+//            group.delegate = self
             group.isRemovedOnCompletion = true
             insideLayer.bounds = newBounds
             insideLayer.cornerRadius = newCornerRadius
             insideLayer.add(group, forKey: "animation")
-            animationNewProperties = (newBounds, newCornerRadius)
+//            animationNewProperties = (newBounds, newCornerRadius)
             
         }
     }
@@ -176,13 +176,13 @@ public class YQCameraButton: UIControl {
 
 
 // MARK: - Delegate
-extension YQCameraButton: CAAnimationDelegate {
-    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        guard let properties = animationNewProperties, flag else {return}
-//        insideLayer.bounds = properties.0
-//        insideLayer.cornerRadius = properties.1
-    }
-}
+//extension YQCameraButton: CAAnimationDelegate {
+//    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+//        guard let properties = animationNewProperties, flag else {return}
+////        insideLayer.bounds = properties.0
+////        insideLayer.cornerRadius = properties.1
+//    }
+//}
 
 public class YQCameraButtonContainer {
     let base: YQCameraButton

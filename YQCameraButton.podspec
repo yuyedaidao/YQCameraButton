@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YQCameraButton"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "模仿系统相机按钮."
 
   # This description is used to generate tags and improve search results.
