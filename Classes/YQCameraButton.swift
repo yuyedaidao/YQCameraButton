@@ -186,7 +186,7 @@ extension YQCameraButton: CAAnimationDelegate {
 
 public class YQCameraButtonContainer {
     let base: YQCameraButton
-    var isSelected: Bool {
+    public var isSelected: Bool {
         set {
             base._isSelected = newValue
         }
