@@ -20,7 +20,7 @@ public enum YQCameraButtonType {
 
 public class YQCameraButton: UIControl {
 
-    private let insideLayer: CAShapeLayer = CAShapeLayer()
+    private let insideLayer: CALayer = CALayer()
     private let outsideLayer: CAShapeLayer = CAShapeLayer()
     private let _intrinsicContentSize = CGSize(width: 30, height: 30)
 //    fileprivate var animationNewProperties: (CGRect, CGFloat)?
@@ -81,7 +81,6 @@ public class YQCameraButton: UIControl {
         outsideLayer.strokeColor = UIColor.white.cgColor
         outsideLayer.lineWidth = lineWidth
         insideLayer.backgroundColor = type == .photo ? UIColor.white.cgColor : UIColor.red.cgColor
-//        insideLayer.masksToBounds = true
         layer.addSublayer(outsideLayer)
         layer.addSublayer(insideLayer)
         resetLayersPath()
@@ -89,7 +88,7 @@ public class YQCameraButton: UIControl {
     }
     
     func resetLayersPath() {
-        assert(bounds.width == bounds.height, "当前视图的长宽不相等,请重新设置")
+
         outsideLayer.frame = self.bounds
         insideLayer.frame = self.bounds.insetBy(dx: lineWidth + kSpace, dy: lineWidth + kSpace)
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
@@ -110,29 +109,22 @@ public class YQCameraButton: UIControl {
             
             let oldCornerRadius = insideLayer.cornerRadius
             let newCornerRadius: CGFloat = isSelected ? 4 : radius
-
+            insideLayer.bounds = newBounds
+            insideLayer.cornerRadius = newCornerRadius
             var animations: [CABasicAnimation] = []
-            if newBounds != oldBounds {
-                let animation = CABasicAnimation(keyPath: "bounds")
-                animation.fromValue = oldBounds
-                animation.toValue = newBounds
-                animations.append(animation)
-            }
-            if newCornerRadius != oldCornerRadius {
+           
+            if newCornerRadius != oldCornerRadius { // MARK: 不知道为什么持续时间没起作用，其实就是圆角动画根本没受控制，但是如果你在insideLayer上直接加动画反而不对，必须放在group里 不知道为啥，怪异
                 let animation = CABasicAnimation(keyPath: "cornerRadius")
                 animation.fromValue = oldCornerRadius
                 animation.toValue = newCornerRadius
                 animations.append(animation)
+                animation.duration = kDuration
             }
             let group = CAAnimationGroup()
             group.animations = animations
             group.duration = kDuration
-//            group.delegate = self
             group.isRemovedOnCompletion = true
-            insideLayer.bounds = newBounds
-            insideLayer.cornerRadius = newCornerRadius
             insideLayer.add(group, forKey: "animation")
-//            animationNewProperties = (newBounds, newCornerRadius)
             
         }
     }
@@ -163,26 +155,8 @@ public class YQCameraButton: UIControl {
         _isHighlighted = false
     }
     
-//    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-//        guard let superview = self.superview else {
-//            return nil
-//        }
-//        if superview.convert(self.bounds, from: nil).contains(point) {
-//            return self
-//        }
-//        return nil
-//    }
 }
 
-
-// MARK: - Delegate
-//extension YQCameraButton: CAAnimationDelegate {
-//    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-//        guard let properties = animationNewProperties, flag else {return}
-////        insideLayer.bounds = properties.0
-////        insideLayer.cornerRadius = properties.1
-//    }
-//}
 
 public class YQCameraButtonContainer {
     let base: YQCameraButton
